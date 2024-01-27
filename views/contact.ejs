@@ -1,0 +1,98 @@
+<%- include("header") -%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        window.addEventListener('load', () => {
+        const button = document.querySelector('#clear');
+        button.addEventListener('click', () => {
+            document.querySelector('#enter').value = "";
+        });
+        button.addEventListener('click', () => {
+            document.querySelector('#enterr').value = "";
+        });
+        button.addEventListener('click', () => {
+            document.querySelector('#enterrr').value = "";
+        });
+        button.addEventListener('click', () => {
+            document.querySelector('#enterrrr').value = "";
+        });
+        button.addEventListener('click', () => {
+            document.querySelector('#enterrrrr').value = "";
+        });
+    });
+    </script>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="contact-info">
+                <div>
+                    <h2>Contact Information-</h2>
+                    <ul class="info">
+                        <br>
+                        <li>
+                            <span><img src="img/location_48px.png" alt="location"></span>
+                            <span>
+                                ABES Engineering College, Ghaziabad, Uttar Pradesh
+                            </span>
+                        </li>
+                        <li>
+                            <span><img src="img/mail_48px.png" alt="mail"></span>
+                            <span>
+                                weather.forecast@gmail.com
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="social-network">
+                    <li><a href="#"><img src="img/facebook_48px.png" alt="facebook"></a></li>
+                    <li><a href="#"><img src="img/twitter_48px.png" alt="twitter"></a></li>
+                    <li><a href="#"><img src="img/instagram_48px.png" alt="instagram"></a></li>
+                    <li><a href="#"><img src="img/linkedin_48px.png" alt="linkedin"></a></li>
+                </ul>
+            </div>
+            <form action="/contact" method="post">
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+               
+                <div class="form-box">
+                    <div class="input-box w50">
+                        <input type="text" name="firstname" id="enter" required>
+                        <span>First Name</span>
+                    </div>
+                    <div class="input-box w50">
+                        <input type="text" name="lastname" id="enterr" required>
+                        <span>Last Name</span>
+                    </div>
+                    <div class="input-box w50">
+                        <input type="text" name="mail" id="enterrr" required>
+                        <span>Email Address</span>
+                    </div>
+                    <div class="input-box w50">
+                        <input type="text" name="num" id="enterrrr" required>
+                        <span>Mobile Number</span>
+                    </div>
+                    <div class="input-box w100">
+                        <textarea name="feedback" required id="enterrrrr"></textarea>
+                        <span>Write your message here...</span>
+                    </div>
+                    
+                    <div class="input-box w100">
+                        <input type="submit" value="Send">
+                    </div>
+                    <div class="input-box w100" id="clear">
+                        <input type="submit" value="Clear">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

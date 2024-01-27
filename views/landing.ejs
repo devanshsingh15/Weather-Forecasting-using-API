@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            /* background-color: rgb(5, 15, 15); */
+            /* background-image: url('/img/pic1.jpg') */
+        }
+        
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header .logo {
+            color: rgb(2, 2, 2);
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        /* .toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+           
+            background-repeat: no-repeat;
+            background-size: 30px;
+            background-position: center;
+            cursor: pointer;
+        }
+        
+        .toggle.active {
+            
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position: center;
+            cursor: pointer;
+        } */
+        
+        .showcase {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            min-height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* background: rgb(23, 19, 19); */
+            transition: 0.5s;
+            z-index: 2;
+            /* background-image: -webkit-linear-gradient(75deg, #c64c4c 50%, #226738 50%); */
+        }
+        
+        .showcase.active {
+            right: 300px;
+        }
+        
+        .showcase video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .showcase img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 100%;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #03a2f41a;
+            mix-blend-mode: overlay;
+        }
+        
+        .text {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .text h2 {
+            font-size: 5em;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+        
+        .text h3 {
+            font-size: 4em;
+            font-weight: 700;
+            color: rgb(32, 31, 31);
+            line-height: 1em;
+            text-transform: uppercase;
+            opacity:;
+        }
+        
+        .text p {
+            font-size: 2.1em;
+            color: rgb(11, 10, 10);
+            margin: 20px 0;
+            font-weight: 400;
+            max-width: 700px;
+        }
+        
+        .button {
+            font-weight: 600;
+            font-size: 1em;
+            border: none;
+            /* background: #fff;
+            color: #111; */
+            color: #fff;
+            background: linear-gradient( 90deg, #1594cb, #346e1da6);
+            cursor: pointer;
+            padding: 15px 12px;
+            border-radius: 5px;
+            overflow: hidden;
+            min-width: 125px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.5s ease-in-out;
+        }
+        
+        .button:hover {
+            letter-spacing: 8px;
+        }
+        
+        /* #button__progress {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.2);
+            transition: width 0.3s;
+        } */
+        
+        #button__text {
+            position: relative;
+            color: rgb(255, 239, 239);
+        }
+        /* span {
+            position: absolute;
+            background: rgb(248, 245, 245);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 50%;
+            animation: animate 1s linear infinite;
+        } */
+        /* @keyframes animate {
+            0% {
+                width: 0%;
+                height: 0%;
+                opacity: 0.5;
+            }
+            100% {
+                width: 50px;
+                height: 50px;
+                opacity: 0;
+            }
+        } */
+        
+        /* .social {
+            position: absolute;
+            z-index: 10;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .social li {
+            list-style: none;
+        }
+        
+        .social li a {
+            display: inline-block;
+            margin-right: 20px;
+            filter: invert(1);
+            transform: scale(0.8);
+            transition: 0.5s;
+        }
+        
+        .social li a:hover {
+            transform: scale(0.5) translateY(-15px);
+        }
+        
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu ul {
+            position: relative;
+        }
+        
+        .menu ul li {
+            list-style: none;
+        }
+        
+        .menu ul li a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #111;
+        }
+        
+        .menu ul li a:hover {
+            color: #053c55;
+        } */
+        
+        /* @media (max-width: 798px) {
+            .showcase,
+            .showcase header {
+                padding: 40px;
+            }
+            .text h2 {
+                font-size: 3em;
+            }
+            .text h3 {
+                font-size: 2em;
+            }
+        }
+        
+        @media(max-width: 450px) {
+            .toggle.active {
+                position: absolute;
+                top: 5%;
+                right: -78px;
+            }
+            .text h2 {
+                font-size: 2em;
+            }
+            .text p {
+                font-size: 1.1em;
+            }
+        } */
+        #para{
+            margin-left: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="showcase" >
+        <header>
+            <h2 class="logo" id="logo">Weather App</h2>
+        </header>
+        <!-- <img src="" alt="#"> -->
+        <video src="/vid/clip.mp4" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="text">
+            <h2></h2>
+            <br>
+            <br>
+            <h3>“Today has been eighty degrees in the shade. I was clever. I stayed in the sun.”</h3>
+            <p id="para">-Marilyn French<p>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="button" id="button" >
+                <!-- <div id="button__progress"></div> -->
+            <a href="/home" style="text-decoration: none;">
+                <div id="button__text" aria-current="page">Get Started</div>
+            </a>
+            </button>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!-- <h1>Here is your fetched information-</h1>
+
+<div class="bob">
+    <h4>The temperature in  <%=  query   %>  is <%= temp %>  degrees Celcius. </h4> 
+
+    <h4>Description of weather prevailing there: <%= des %> </h4>
+
+    <img src= <%= imageURL %> >
+
+    <h4> Pressure: <%= pres %> hPa </h4>
+
+    <h4> Humidity: <%= humd %> </h4>
+
+    <h4>Wind Speed <%= wind %> m/s</h4>
+
+    <h4>Visibility <%= visibility %> metres</h4>
+
+    <h4>Longitude <%= lon %> </h4>
+
+    <h4>Latitide <%= lat %> </h4>
+</div> -->
+
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/resStyles.css">
+    <script src="https://kit.fontawesome.com/bba1b57bfc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Weather App</title>
+
+    <!-- <style>
+        .dark-mode {
+        background-image: -webkit-linear-gradient(75deg, #1d2d34 50%, #b1cdf1 50%);
+  min-height: 100px;
+      color: rgb(14, 6, 8);
+      }
+      .light-mode {
+        background-image: -webkit-linear-gradient(75deg, #804ee3 50%,  #031661 50%);
+  min-height: 100px;
+       color: whitesmoke;
+      }
+        #DarkModetext{
+            margin-right: 0px;
+            border-radius: 500px;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        function darkMode() {
+          var element = document.body;
+          var content = document.getElementById("DarkModetext");
+          element.className = "dark-mode";
+        }
+        function lightMode() {
+          var element = document.body;
+          var content = document.getElementById("DarkModetext");
+          element.className = "light-mode";
+        }
+      </script> -->
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="section-1">
+                    <div class="icon">
+                        <i class="fas fa-cloud fa-2x" aria-hidden="true"></i><span class="aora"><em>  </em><b>Weather App</b></span></i>
+                    </div>
+
+                    <div class="aora">
+                        <a href="/landing" aria-current="page"><i class="fab fa-elementor fa-xs" aria-hidden="true"></i>    
+                            <button class="section-1-button">Home</button></a>
+                    </div>    
+                     
+                        <br>
+                    <div class="aora">
+                        <a href="/home" aria-current="page"><i class="fas fa-map-marker-alt fa-xs" aria-hidden="true"></i>
+                            <button class="section-1-button">Forecasting</button></a>
+                    </div>    
+                        <br>
+                        
+                    <a href="/contact"maria-current="page"><div class="aora">    
+                        <i class="fas fa-map-marked-alt fa-xs" aria-hidden="true"></i>
+                        <button class="section-1-button">Contact Us</button>
+                    </div> </a>   
+                        <br>
+
+                    <a href="/destination" aria-current="page"><div class="aora">    
+                        <i class="fas fa-cog fa-xs" aria-hidden="true"></i>
+                        <button class="section-1-button">Destinations   </button></a>
+                    </div>   
+
+                    <a href="/home" aria-current="page"><div class="aora log-out">
+                        <i class="fas fa-sign-out-alt fa-xs" aria-hidden="true"></i>
+                        <button class="section-1-button">Search Again</button>
+                    </div></a>
+                </div>      
+            </div>
+            <div class="col-5">
+                
+                <div class="section-2">
+                    
+                    <p id="textsection2" class="text2">Weather Forecasting in  <%=  query   %> -</p>
+                    <!-- <button id="menu"><i class="fa fa-ellipsis-h  text-2" aria-hidden="true"></i></button> -->
+                        
+                    <div class="section-2-item1">
+                        <div id="para1"> <p><b>Temperature- </b></p>
+                       <%= temp %>  Degrees Celcius</div>
+                       <br>
+                        <img src="/img/uvindex.png" alt="UV INDEX IS 5" id="uv_index">
+                    </div>
+                    <div class="section-2-item2">
+                        <div id="para2"><p><b>Description- </b><br></p>
+                            <%= des %> is prevailing over there <br></div>
+                            <div id="des">
+                        <i class="fa fa-arrow-circle-up fa-2x  box2" aria-hidden="true"></i><span class="box2-text" >5:39 AM</span>
+                        <p class="sub-sunrise">-1m 46s</p>
+                        
+                        <i class="fa fa-arrow-circle-down fa-2x  box2" aria-hidden="true"></i><span class="box2-text">8:24 PM</span>
+                        <p class="sub-sunrise">+2m 22s</p></div>
+                    </div>
+            
+                    <div id="icon" class="section-2-item3">
+                        <p><b>Co-ordinates-</b></p>
+                        <p id="icon_imagee">                        <p id="icon_imagee"><p><b>Latitude-</b></p><%= lat %> <br><p><b>Longitude-</b></p><%= lon %><span id="metric"></span> </p>
+                        <span id="metric"></span> </p>
+                        <p id="sub-visibility"></p>
+                    </div>
+
+                    <div class="section-2-item4">
+                        <div id="Visibility"><p><b>Pressure-</b></p>
+                            
+                            <p ><%= pres %> hPa </p></div>
+                        <br>
+                        <p id="sub-visibility">(Average)</p>
+                    </div>
+
+                    <div class="section-2-item5">
+                        <div id="hum"><p><b>Humidity-</b></p>
+                            <p ><%= humd %> %<span> </span></p></div><br>
+                        <p id="sub-visibility">(Normal)</p>
+                    </div>
+
+                    <div class="section-2-item6">
+                        <div id="wind"><p><b>Wind Speed-</b> <br><br><%= wind %> m/s
+                            <br><br>
+                            <p id="sub-visibility">(Good)</p></div>
+                    </div>
+                    
+                </div>  
+            </div>
+            <div class="col-4">
+                <div class="section-3">
+                    <!-- <i class="fa fa-bell bell-icon" aria-hidden="true"></i>
+                    <span id="username">Michael Garcia</span>
+                    <img src="/img/profile.png" alt="user" height="30" width="30" style="border: radius 100%;">
+                    <div class="line2">
+                        <p><b><span id="city">The Hague,</span></b><button id="menu"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></p>
+                        <p id="country">Netherlands</p>
+                        <p id="date">Mon,19 Aug</p>
+                        
+                    </div> -->
+                    <div class="line-3" id="today">
+                        <br>
+                        <h2>Today</h2>
+                    </div>
+                    <div class="line-4">
+                         <p><b>Icon of weather-</b></p>
+                        <p id="icon_image"><img src= <%= imageURL %> >  <br><b><%= des %></b>
+                        <p id="sub-visibility"></p>
+                    </div>
+
+                    <div class="line-5">
+                        <img src="/img/wind.png" alt="wind-speed" class="weathers">
+                        <img src="/img/humidity.png" alt="humidity" class="weathers">
+                        <img src="/img/umbrella.png" alt="rainfall" class="weathers">
+                        <pre id="speed"> 16km/h     40%       10%</pre>   
+                    </div>
+
+                    <br><br><br>
+                    <div class="line-6">
+                        <p id="line6text">Visibility-
+                             <%= visibility %> Metres<!--<span id="line6righttext">Next 7 Days ></span></p>
+                    </div>
+
+                    <div class="line-7">
+                        <div class="line-7-items">
+                            <p id="time"><b>Now</b></p>
+                            <p>19<sup><sup>o</sup></sup></p>
+                        </div>
+                        <div class="line-7-items">
+                            <p id="time"><b>11:00</b></p>
+                            <p>18<sup><sup>o</sup></sup></p>
+                        </div>
+                        <div class="line-7-items">
+                            <p id="time"><b>12:00</b></p>
+                            <p>19<sup><sup>o</sup></sup></p>
+                        </div>
+                        <div class="line-7-items">
+                            <p id="time"><b>13:00</b></p>
+                            <p>21<sup><sup>o</sup></sup></p>
+                        </div> -->
+                    </div>
+                    
+                </div>
+                <!-- <div class="section-4">
+                    <div class="sel">
+                        <li><h6 id="DarkModetext"></h6>
+                          <li><button onclick="darkMode()" id="btn1">Dark</button></li>
+                          <li><button onclick="lightMode()" id="btn2" >Light</button></li>
+                          </li>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

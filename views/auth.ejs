@@ -1,0 +1,322 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initialscale=1.0"/>
+        <title>Weather App</title>
+        <link rel="stylesheet" type="text/css" href="login-register_styles.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&   display=swap" rel="stylesheet">
+
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="bootstrap-social.css"> 
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+            :root{
+    --clr-green: hsl(229, 70%, 56%);
+    --clr-purple: hsl(277, 100%, 30%);
+    --clr-text: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--clr-green);
+    transition: 0.5s;
+}
+
+body.active{
+    background: var(--clr-purple);
+}
+
+#google{
+    margin-top: 340px;
+    font-size: 30px;
+    color: white ;
+}
+#btn{
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: bold;
+    color: #b3bbeb;
+    background-color: rgb(89, 78, 78);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(50, 45, 45, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+#btn:hover{
+    background-color: #b7bddcdc;
+    box-shadow: 0px 5px 10px rgba(184, 174, 236, 0.87);
+    color: #333866;
+    border-radius: 10px;
+    transform: translateX(6px);
+}
+
+#head{
+    color: rgb(236, 241, 247);
+    margin-bottom: 600px;
+}
+
+.container{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+}
+
+.blueBg{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+}
+
+.blueBg .box{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blueBg .box h2{
+    color: var(--clr-text);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-right: 170px;
+}
+
+.blueBg .box button{
+    cursor: pointer;
+    padding: 10px 20px;
+    background: var(--clr-text);
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    margin-right: 170px;
+
+
+    margin-top: 10px;
+    width: 230px;
+    height: 50px;
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: bold;
+    color: #b3bbeb;
+    background-color: rgb(64, 56, 56);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(50, 45, 45, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+.blueBg .box button:hover{
+    background-color: #b7bddcdc;
+    box-shadow: 0px 5px 10px rgba(184, 174, 236, 0.87);
+    color: #333866;
+    border-radius: 10px;
+    transform: translateX(6px);
+}
+
+.formBx{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background: hsl(0, 0%, 10%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.formBx.active{
+    left: 50%;
+}
+
+.formBx .form{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    padding: 50px;
+    transition: 0.6s;
+}
+
+.formBx .signinForm{
+    transition-delay: 0.25s;
+}
+
+.formBx.active .signinForm{
+    left: -150%;
+    transition-delay: 0s;
+}
+
+.formBx .signupForm{
+    left: 150%;
+    transition-delay: 0s;
+}
+
+.formBx.active .signupForm{
+    left: 0;
+    transition-delay: 0.25s;
+}
+
+.formBx .form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formBx .form form h3{
+    font-size: 1.5em;
+    color: var(--clr-text);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.formBx .signupForm form h3{
+    text-align: right;
+}
+
+.formBx .form form input{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.formBx .signupForm form input[type="text"], .formBx .signupForm form input[type="password"]{
+    text-align: right;
+}
+
+.formBx .form form input[type='submit']{
+    border: none;
+    color: var(--clr-text);
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.formBx .form form input[name="login"]{
+    background: var(--clr-green);
+}
+
+.formBx .form form input[name="login"]:hover{
+    background-color: #69e09ddc;
+    box-shadow: 0px 2px 2px rgba(26, 26, 27, 0.87);
+    color: #06060b;
+    transform: translateX(6px);
+}
+
+.formBx .signupForm input[name="register"]{
+    margin-left: 200px;
+    background: var(--clr-purple);
+}
+
+.formBx .form form input[name="register"]:hover{
+    background-color: #69e09ddc;
+    box-shadow: 0px 2px 2px rgba(26, 26, 27, 0.87);
+    color: #07070b;
+    transform: translateX(6px);
+}
+#oops{
+    color: white;
+}
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="blueBg">
+                <b id="head"><h1><pre><b>WEATHER APP</b></pre></h1></b>
+                <div class="box signin">
+                    <h2>Already Have an Account?</h2>
+                    <button class="signinBtn">Sign In</button>
+                </div>
+                <div class="box signup">
+                    <h2>Don't Have an Account?</h2>
+                    <button class="signupBtn">Sign Up</button>
+                </div>
+            </div>
+            
+            <div class="formBx">
+                <div class="form signinForm">
+                    <form action="/log" method="post">
+                        <h3>Sign In</h3>
+                        <input type="email" for="email" placeholder="Email Address" name="username"/>
+                        <input type="password" placeholder="Password"/ name="password">
+                        <input type="submit" value="Login" name="login"/>
+                    </form>
+                </div>
+
+                <div class="col-sm-4" id="google">
+                    <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+                      <i id="oops" class="fab fa-google"></i>
+                      <button id="btn">Continue With Google</button>
+                    </a>
+                </div>
+
+                <div class="form signupForm">
+                    <form action="/reg" method="post">
+                        <h3>Sign Up</h3>
+                        <input type="email" for="email" placeholder="Email Address" name="username"/>
+                        <input type="password" placeholder="Password" name="password"/>
+                        <input type="submit" value="Register" name="register"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const signinBtn = document.querySelector('.signinBtn');
+            const signupBtn = document.querySelector('.signupBtn');
+            const formBx = document.querySelector('.formBx');
+            const body = document.querySelector('body');
+
+            signupBtn.onclick = function(){
+                formBx.classList.add('active')
+                body.classList.add('active')
+            }
+
+            signinBtn.onclick = function(){
+                formBx.classList.remove('active')
+                body.classList.remove('active')
+            }
+
+        </script>
+    </body>
+</html>
